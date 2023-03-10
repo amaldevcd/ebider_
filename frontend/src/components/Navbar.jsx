@@ -9,12 +9,12 @@ function NavBar()
     return(
         <div className="title-bar">
         <a href="#default" class="logo"> Ebidder</a>
-        <div className="login-button-container">
-        <div>Home</div>
-        <div>Auction</div>
-        <div>How It Works</div>
-        <div>About Us</div>
-        <div>Contact</div>
+        <div className="navbar-buttons">
+        <div  onClick={(e)=>{ navigate("/")}}  className="navbar-button">Home</div>
+        <div onClick={(e)=>{ navigate("/auction")}}  className="navbar-button">Auction</div>
+        <div onClick={(e)=>{ navigate("/working")}} className="navbar-button">How It Works</div>
+        <div onClick={(e)=>{ navigate("user/dashboard")}} className="navbar-button">Dashboard</div>
+        <div className="navbar-button">About Us</div>
           <button className="login-button" onClick={(e)=>{
                navigate("/login");
               

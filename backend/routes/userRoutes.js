@@ -1,20 +1,62 @@
-import {response, Router} from "express";
-import {check,validationResult} from "express-validator";
-const UserRouter = Router();
-import bcrypt from "bcrypt";
-import User from "../models/User.js"
 
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-// import auth from "../Middleware/auth.js";
+import express from 'express';
+const userRoutes = express.Router();
+
+import { authenticateUser } from '../middleware/authentication.js';
+
+import{
+  userfetch,
+  // login,
+  // logout,
+//   verifyEmail,
+//   forgotPassword,
+//   resetPassword,
+} from '../controllers/userController.js';
+
+userRoutes.get('/:id', userfetch);
+// userRoutes.post('/login', login);
+// userRoutes.delete('/logout', authenticateUser, logout);
+// router.post('/verify-email', verifyEmail);
+// router.post('/reset-password', resetPassword);
+// router.post('/forgot-password', forgotPassword);
+
+export default userRoutes;
 
 
-dotenv.config();
 
-UserRouter.post('/signup',async(req,res)=>{
-    console.log(req.body);
-}
-);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import {response, Router} from "express";
+// import {check,validationResult} from "express-validator";
+// const UserRouter = Router();
+// import bcrypt from "bcrypt";
+// import User from "../models/User.js"
+
+// import jwt from "jsonwebtoken";
+// import dotenv from "dotenv";
+// // import auth from "../Middleware/auth.js";
+
+
+// dotenv.config();
+
+// UserRouter.post('/signup',async(req,res)=>{
+//     console.log(req.body);
+// }
+// );
 
 //signup page post routes
 // UserRouter.post('/signup',[
@@ -122,6 +164,7 @@ UserRouter.post('/signup',async(req,res)=>{
 
 
 // UserRouter.get('/:id',auth,async(req, res) => {
+//     UserRouter.get('/:id',async(req, res) => {
 //  try{ 
 //   const userId=req.params.id;
 //   let user = await User.findById(userId);
@@ -135,11 +178,16 @@ UserRouter.post('/signup',async(req,res)=>{
 //   }
 //   else{
 //     const userData={
-//       name: user.name,
+//       firstName: user.firstName,
+//       lastName: user.lastName,
 //       email: user.email,
 //       phoneNumber: user.phoneNumber,
-//       dob: user.dob,
-//       gender: user.gender,
+//       address: user.address,
+//       city: user.city,
+//       state: user.state,
+//       country: user.country,
+//       zipCode: user.zipCode
+      
 //     }
 //     return res.status(200).json(userData);
       
@@ -156,4 +204,4 @@ UserRouter.post('/signup',async(req,res)=>{
 
 
 
-export default UserRouter;
+// export default UserRouter;

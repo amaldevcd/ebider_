@@ -39,11 +39,14 @@
     color: white;
   }
   
-  .login-button-container {
+  .navbar-buttons {
     float: right;
     display:flex;
     justify-content:center;
     align-items:center;
+  }
+  .navbar-button{
+    margin:8px;
   }
   
   @media screen and (max-width: 300px) {

@@ -9,6 +9,7 @@ import logout from "../assets/Logout.svg";
 import Profile from "../components/Profile"
 import OrderTable from "../components/OrderTable";
 import PurchaseTable from "../components/PurchaseTable";
+
 function Dashboard (){
     const [selected,setSelected]=useState("dashboard");
     console.log(selected);
