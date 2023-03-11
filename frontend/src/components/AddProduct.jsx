@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import plus from '../assets/plus.svg';
+import plus from '../assets/Plus.svg';
 import PopUp from './PopUp';
 import ItemBar from "./ItemBar"
 import "./style/addProduct.css";
