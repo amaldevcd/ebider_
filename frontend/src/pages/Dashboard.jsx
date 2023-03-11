@@ -4,7 +4,7 @@ import "./style/dashboard.css";
 import dashboard from '../assets/dashboard.svg';
 import person from '../assets/person.svg';
 import shoppingBag from '../assets/ShoppingBag.svg';
-import paid from "../assets/paid.svg";
+import paid from "../assets/Paid.svg";
 import logout from "../assets/Logout.svg";
 import Profile from "../components/Profile"
 import OrderTable from "../components/OrderTable";
