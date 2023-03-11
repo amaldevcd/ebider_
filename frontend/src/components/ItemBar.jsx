@@ -1,7 +1,7 @@
 import "./style/itemBar.css";
 //import { BsFillPencilFill,BsFillTrashFill } from "react-icons/bs"
 import axios from "axios";
-import edit from '../assets/edit.svg';
+import edit from '../assets/Edit.svg';
 import Delete from '../assets/Delete.svg';
 // /import {hostelDeleteUrl} from "../url/url";
 import { Link, useNavigate, useLocation } from "react-router-dom";

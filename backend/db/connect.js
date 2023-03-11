@@ -1,7 +1,8 @@
-
 import mongoose from 'mongoose';
+import dotenv from "dotenv"
+dotenv.config();
 const db=mongoose
-.connect("mongodb://localhost:27017/ebidderDB")
+.connect(process.env.MONGO_URI)
 .then(() => console.log("Connected to database"))
 .catch((err) => console.error("Could not connect to database", err));
 
