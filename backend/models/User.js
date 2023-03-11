@@ -59,6 +59,12 @@ const UserSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+UserSchema.virtual('bided', {
+  ref: 'Bidding',
+  localField: '_id',
+  foreignField: '_id_owner',
+  justOne: false,
+});
 UserSchema.pre('save', async function () {
   // console.log(this.modifiedPaths());
   // console.log(this.isModified('name'));

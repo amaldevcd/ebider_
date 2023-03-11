@@ -56,7 +56,7 @@ function LogIn() {
                 }
                  setAuth(userdetails);
                  setUserData(userdetails);
-                 console.log("userData",userData);
+                 console.log("userData",userdetails);
                  //console.log(auth);
                  navigate(from,{replace:true});
                 // setAuth({user,pwd,roles,accessToken});
