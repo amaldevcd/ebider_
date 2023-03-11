@@ -1,0 +1,39 @@
+.item-list{
+ border: 1px solid black;
+ margin-right: 24px;
+}
+.item-list-header{
+    height:48px;
+    background-color: rgb(77, 76, 76);
+    display:flex;
+    align-items:center;
+    
+
+}
+.item-list-header h4{
+    margin-left: 20px;
+}
+.items-box-container{
+    margin-left: 32px;
+    margin-right: 32px;
+}
+.item-list-header-add-plus {
+    margin-left:10px;
+   background-color: white;
+   height:40px;
+   width:40px;
+   border-radius: 10px;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   
+}
+.item-list-header-add-plus img{
+    height:24px;
+    width:24px;
+    
+    object-fit: none;
+    object-position: center center;
+    
+    
+}

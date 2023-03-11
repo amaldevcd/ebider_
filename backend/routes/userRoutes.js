@@ -6,7 +6,7 @@ import { authenticateUser } from '../middleware/authentication.js';
 
 import{
   userfetch,
-  // login,
+  userUpdate,
   // logout,
 //   verifyEmail,
 //   forgotPassword,
@@ -14,7 +14,7 @@ import{
 } from '../controllers/userController.js';
 
 userRoutes.get('/:id', userfetch);
-// userRoutes.post('/login', login);
+userRoutes.put('/:id', userUpdate);
 // userRoutes.delete('/logout', authenticateUser, logout);
 // router.post('/verify-email', verifyEmail);
 // router.post('/reset-password', resetPassword);

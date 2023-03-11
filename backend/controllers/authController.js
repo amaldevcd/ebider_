@@ -13,7 +13,7 @@ import {
 import crypto from 'crypto';
 dotenv.config();
 const register = async (req, res) => {
-  const { firstName,lastName,phoneNumber,email,password } = req.body;
+  const { firstName,lastName,phoneNumber,email,password,address,city,state,country,zipCode } = req.body;
   console.log(req.body);
   const emailAlreadyExists = await User.findOne({ email });
   if (emailAlreadyExists) {
@@ -33,6 +33,11 @@ const register = async (req, res) => {
     email,
     password,
     // role,
+    address,
+    city,
+    state,
+    country,
+    zipCode,
     verificationToken,
   });
   const origin = 'http://localhost:3000';

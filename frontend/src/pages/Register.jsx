@@ -49,9 +49,11 @@ function Register() {
                          phoneNumber: values.phoneNo,
                          email: values.email,
                          password: values.password,
-                         locality:"",
-                         district:"",
-                         imageUrl:"",
+                         address:"palk",
+                         city:"dwkn",
+                         state:"fnmwn",
+                         country:"n3kn",
+                         zipCode:"678732",
 
                        }
                        console.log(userInfo);

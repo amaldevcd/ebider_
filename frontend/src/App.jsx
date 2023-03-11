@@ -14,7 +14,7 @@ import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 import Login from "./pages/Login";
 import Register from './pages/Register';
 import AuctionPage from './pages/AuctionPage';
-import ProductDetailPage from './pages/ProductDetailPage';
+import ProductDetail from './pages/ProductDetailPage';
 import Dashboard from './pages/Dashboard';
 import Navbar from './components/Navbar';
 import HowItWork from './pages/HowItWorkPage';
@@ -56,6 +56,7 @@ function App() {
 
         <Route element={<RequireAuth/>}>
         <Route path="user/dashboard" element={<Dashboard />}/> 
+        <Route path="product/detail" element={<ProductDetail/>}/>
         </Route>
 
         </Routes>
