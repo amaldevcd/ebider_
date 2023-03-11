@@ -5,11 +5,25 @@ import share from '../assets/share.svg';
 import carrot from '../assets/carrot.jpeg';
 import person from '../assets/personProfile.jpg';
 import "./style/card.css";
+import AuctionCounter from "../hooks/TimeRemaning"; 
 // import { Link } from 'react-router-dom';
 // import { useGlobalContext } from '../context';
 
-function Card(){
+function Card(props){
 //   const { user, logoutUser } = useGlobalContext();
+console.log("props", props.data);
+const timestamp = props.data.createdAt;
+     const currentTimestamp = Date.now();;
+     
+     // Convert string timestamps to Date objects
+     const date1 = new Date(timestamp);
+     const date2 = new Date(currentTimestamp);
+     
+     // Calculate the difference in milliseconds
+     const diffInMs = Math.abs(date2 - date1);
+     
+     // Convert milliseconds to hours
+     const diffInHours = diffInMs / 3600000;
   return (
     <>
       
@@ -19,12 +33,13 @@ function Card(){
        <div className="card-image-timer">
         <div className="card-image-countdown">
             <h4>
-                <span >2</span>
+            {props.data.biddingTime>diffInHours ? <AuctionCounter initialTime={props.data.biddingTime-diffInHours} /> : <p>bidding over</p> }
+                {/* <span >2</span>
                 H:&nbsp;
                 <span >52</span>
                 M:&nbsp;
                 <span >50</span>
-                S
+                S */}
             </h4>
         </div>
        </div>
@@ -40,10 +55,10 @@ function Card(){
        </div>
        <div className="card-content">
        <h4>
-       Carrot, Short n Sweet
+       {props.data.name}
        </h4>
-       <p className="card-content-bid-price">Bidding Price : <span> $ 520.25</span> </p>
-       <p className="card-content-bid-count">No of Bids: <span>5</span></p>
+       <p className="card-content-bid-price">Bidding Price : <span> { props.data.finalBidAmt}</span> </p>
+       <p className="card-content-bid-count">No of Bids: <span>{ props.data.no_of_bids}</span></p>
 
        <div className='card-bottom'>
        <div className='card-bid-btn'>Place Bid</div>

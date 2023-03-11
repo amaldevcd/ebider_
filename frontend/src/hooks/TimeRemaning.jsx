@@ -15,14 +15,14 @@ function AuctionCounter({ initialTime }) {
     const hours=Math.floor(time/3600)
     const minutes = Math.floor((time % 3600)/60);
     const seconds = Math.floor(time % 60);
-    console.log(seconds)
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    //console.log(seconds)
+    return `${hours.toString().padStart(2, '0')}H:${minutes.toString().padStart(2, '0')}M:${seconds.toString().padStart(2, '0')}S`;
   }
 
   
   return (
     <div>
-      Time Remaining: {formatTime(timeRemaining)}
+       {formatTime(timeRemaining)}
     </div>
   );
    

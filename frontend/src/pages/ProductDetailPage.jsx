@@ -10,10 +10,14 @@ import "./style/productDetailPage.css"
 // import { Link } from 'react-router-dom';
 // import { useGlobalContext } from '../context';
 import BindingHistory from '../components/BidingHistory';
+import { Link, useNavigate, useLocation } from "react-router-dom";
 function ProductDetailPage(){
- const [image,setImage]=useState(carrot);
- const [selected,setSelected]=useState("description");
-
+  const [image,setImage]=useState(carrot);
+  const [selected,setSelected]=useState("description");
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location.state);
+  const [bidValue, setBidValue] = useState(0);
   return (<>
   <div>
 
@@ -34,20 +38,27 @@ function ProductDetailPage(){
             </div>
             </div>
             <div className="product-detail-container">
-            <h3>Carrot, Short n Sweet</h3>
-            <p>Easy to grow and full of vitamins, this rich, sweet flavored carrot has 4" roots that are bright orange to the center. It was bred especially for heavy or poor soil and can also be grown in large containers. Burpee Exclusive. GARDEN HINTS: Sow seed in deep, well-worked stone-free soil after danger of heavy frost in the spring. Do not transplant because crooked roots may result.</p>
-            <h4>Bidding Prize: <span>465.00</span></h4>
+            <h3>{location.state.name}</h3>
+            <p>{location.state.smallDescription}</p>
+            {/* <p>Easy to grow and full of vitamins, this rich, sweet flavored carrot has 4" roots that are bright orange to the center. It was bred especially for heavy or poor soil and can also be grown in large containers. Burpee Exclusive. GARDEN HINTS: Sow seed in deep, well-worked stone-free soil after danger of heavy frost in the spring. Do not transplant because crooked roots may result.</p> */}
+            <h4>Bidding Prize: <span>{location.state.finalBidAmt}</span></h4>
 
             <div className="product-detail-bid-container">
             <div className="product-detail-bid-title">
             <h5>Bid Now</h5>
-            <p>Bid Amount : Minimum Bid:20.00</p>
+            <p>Bid Amount : Minimum Bid:{location.state.finalBidAmt}</p>
              <form>
              <div className="product-detail-bid-form">
 
-                <input type="text" placeholder=" 00.00"/>
+                <input type="text" placeholder=" 00.00"
+                  onChange={(e)=>{
+                    setBidValue(e.target.value)
+                  }}
+                />
 
-                <button type="submit" className="product-detail-bid-submit-btn">Place Bid</button>
+                <button type="submit" className="product-detail-bid-submit-btn"
+                
+                >Place Bid</button>
              </div>
              </form>
             </div>

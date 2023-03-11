@@ -25,6 +25,31 @@ const itemAdd = async (req, res) => {
   });
  };
 
+ const itemsFetch = async (req, res) => {
+    try{ 
+     // console.log("update here",req.body);
+        //const userId=req.params.id;
+        //console.log("userId",userId);
+        let items = await Item.find();
+      
+        console.log(items);
+      
+      
+        if(!items)
+        {
+          throw new Error("No items found");
+        }
+      
+          return res.status(200).json(items);
+            
+        //}
+       }
+       catch (err)
+       {
+        res.status(400).json({errors:[{msg: err.message}]});
+       }
+      
+    }
 
 
 
@@ -42,19 +67,7 @@ const itemAdd = async (req, res) => {
         {
           throw new Error("No items found");
         }
-        // else{
-        //   const userData={
-        //     firstName: user.firstName,
-        //     lastName: user.lastName,
-        //     email: user.email,
-        //     phoneNumber: user.phoneNumber,
-        //     address: user.address,
-        //     city: user.city,
-        //     state: user.state,
-        //     country: user.country,
-        //     zipCode: user.zipCode
-            
-          //}
+      
           return res.status(200).json(items);
             
         //}
@@ -74,6 +87,7 @@ const itemAdd = async (req, res) => {
 
 
  export {
+    itemsFetch,
     itemAdd,
     allItemFetch,
   };
