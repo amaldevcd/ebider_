@@ -18,13 +18,13 @@ const [userData, setUserData, removeUserData] = useLocalStorageRef("user")
 //const location=useLocation();
 const [user,setUser]=useState({})
 
-console.log(userData.current._id);
+console.log("_id",userData.current._id);
 
 const [values, setValues] = useState({
+  _id:userData.current._id,
   firstName:'',
   lastName:'',
   phoneNumber:'',
-  email:'',
   address:'',
   city:'',
   state:'',
@@ -113,15 +113,15 @@ useEffect(()=>{
             handleChange={handleChange}
           />
           </div>
-          <div className="profile-form-col">
-           <FormRow
+         <div className="profile-form-col">
+           {/* <FormRow
             type='email'
             name='email'
             placeholder={values.email}
             icon="null"
             value={values.email}
             handleChange={handleChange}
-          />
+          /> */}
         </div>
         </div>
            <FormRow
@@ -176,9 +176,46 @@ useEffect(()=>{
           />
           </div>
           </div>
-          <button onClick={(e)=>{
-            console.log("here");
-          }} 
+          <button onClick={ async(e)=>{
+            //console.log("here");
+            console.log("values",values);
+            try{
+            const response = await axios.put(
+              
+                          userUrl+`/${userData.current._id}`,
+                          JSON.stringify(values),
+                          {
+                            headers: {
+                              "Content-Type": "application/json",
+                              Accept: "*/*",
+                            },
+                            withCredentials: true,
+                          }
+              
+            );
+                        console.log(response.data);
+                        // setAuth(response.data.user);
+                        // setUserData(response.data.user);
+
+                        console.log("Updated Successfully!");
+            
+          }
+                       catch (err) {
+                        console.log(err);
+                        if (err.response?.status == 409) {
+                          console.log("Username not updated successfully");
+                        } else if (err?.response) {
+                          console.log(!err?.response);
+                          console.log("no server response");
+                        } else {
+                          console.log("Failed to update");
+                          setError("Failed to update");
+                          console.error(err);
+                        }
+                      }
+                      
+                      }
+                } 
           className="profile-form-update-btn">Update Profile</button>
           <button className="profile-form-cancel-btn">Cancel</button>
         </form>
